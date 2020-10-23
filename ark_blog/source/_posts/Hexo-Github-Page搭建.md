@@ -1,5 +1,5 @@
 ---
-title: Hexo + Github Page搭建
+title: Hexo + Github Page 搭建
 date: 2020-10-18 22:12:25
 categories:
 - 快速上手

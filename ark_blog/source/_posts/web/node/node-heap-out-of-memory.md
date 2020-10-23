@@ -5,13 +5,15 @@ categories:
 - BUG修复
 tags:
 - Node.js
+- Vuepress
 ---
 
 ## 编译 Vuepress 内存溢出
 
 - [x] 已解决
 
-在服务器上编译一个 Vuepress 项目时报错。
+在服务器上编译一个 Vuepress 项目时报错。之前都没出事，自从加了一堆 pdf 使得项目变得很大后就有问题了
+
 在自己主机上怎么跑怎么编译都不会报错，放到服务器上老编译失败，可能是主机 64G 内存无所畏惧？
 
 ```bash
@@ -98,9 +100,9 @@ FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaS
 
 原因
 
-node 基于 V8 引擎，限制了内存使用大小。在 V8 下，64 位系统可以操纵 1.4GB 的内存，32 位可以操纵 0.7GB 内存。如果前端项目非常庞大，webpack 编译时会占用很多的系统资源，如果超出了 V8 对 node 默认的内存限制大小就会出现如上的错误。
+node 基于 V8 引擎，限制了内存使用大小。在 V8 下，64 位系统可以操纵 1.4GB 的内存，32 位可以操纵 0.7GB 内存。如果前端项目非常庞大，webpack 编译时会占用很多的系统资源，如果超出了 V8 对 node 默认的内存限制大小就会出现如上的错误
 
-#### 方案一：修改 `NODE_OPTIONS`
+### 方案一：修改 `NODE_OPTIONS`
 
 在服务器上运行
 
@@ -118,7 +120,7 @@ export NODE_OPTIONS=--max_old_space_size=8192
 
 垃圾回收 `Mark-sweep` 的范围始终是 2G 左右，`--max_old_space_size=12288` 设置的 12G 没有显示
 
-#### 方案二：使用 `increase-memory-limit` （由于某些原因我这不太好弄就没弄）
+### 方案二：使用 `increase-memory-limit` （由于某些原因我这不太好弄就没弄）
 
 安装 `increase-memory-limit`
 
@@ -146,7 +148,7 @@ npm install -save-dev cross-env
 npm run fix-memory-limit
 ```
 
-#### 方案三：在 `docs:build` 中添加 `--max_old_space_size` 参数
+### 方案三：在 `docs:build` 中添加 `--max_old_space_size` 参数
 
 Vuepress 的 `package.json` 中 `docs:build` 被封装
 
@@ -158,7 +160,7 @@ Vuepress 的 `package.json` 中 `docs:build` 被封装
 
 直接在其中添加 `--max_old_space_size=8192` 会报找不到该参数的错，需要修改为如下格式
 
-```
+```json
 "scripts": {
   "docs:build": "node --max_old_space_size=8192 xxx/xxx build"
 },

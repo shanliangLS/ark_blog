@@ -37,10 +37,10 @@ valine:
 
 # main menu navigation
 menu:
-  Home: ''
+  '首页': ''
 #  About: about/
 #  Contact: contact/
-  Archives: archives/
+  '归档': archives/
 
 # stylesheets loaded in the <head>
 stylesheets:
