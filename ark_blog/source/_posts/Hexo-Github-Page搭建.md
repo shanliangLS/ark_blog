@@ -1,7 +1,11 @@
 ---
 title: Hexo + Github Page搭建
 date: 2020-10-18 22:12:25
+categories:
+- 快速上手
 tags:
+- Hexo
+- Github Page
 ---
 
 ## 安装 Hexo
@@ -60,9 +64,9 @@ git config --global user.email "Github 邮箱地址"
 ssh-keygen -t rsa -C 'Github 邮箱地址'
 ```
 
-按照提示完成三次回车，即可生成 SSH key，使用 `cat ~/.ssh/id_rsa.pub` 获取 SSH key
+按照提示完成三次回车（可以不设置密码）即可生成 SSH key，使用 `cat ~/.ssh/id_rsa.pub` 获取 SSH key
 
-首次使用还需要确认并添加主机到本机SSH可信列表。若返回 Hi xxx! You've successfully authenticated, but GitHub does not provide shell access. 内容，则证明添加成功
+首次使用还需要确认并添加主机到本机 SSH 可信列表。若返回 Hi xxx! You've successfully authenticated, but GitHub does not provide shell access. 内容，则证明添加成功
 
 登录 Github 在 Setting 找到 SSH 配置，添加 SSH key
 
