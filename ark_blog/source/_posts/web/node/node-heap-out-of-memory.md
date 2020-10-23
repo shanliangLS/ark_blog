@@ -16,7 +16,7 @@ tags:
 
 在自己主机上怎么跑怎么编译都不会报错，放到服务器上老编译失败，可能是主机 64G 内存无所畏惧？
 
-```bash
+{% codeblock lang:bash mark:10 %}
 wait Rendering static HTML...
 <--- Last few GCs --->
 [34421:0x3ae1f20]   238228 ms: Scavenge 2031.6 (2059.1) -> 2027.7 (2076.9) MB, 8.0 / 0.0 ms  (average mu = 0.286, current mu = 0.319) allocation failure 
@@ -50,11 +50,11 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm ERR! A complete log of this run can be found in:
 npm ERR!     /home/gitlab-runner/.npm/_logs/2020-10-19T00_37_45_861Z-debug.log
 ERROR: Job failed: exit status 1
-```
+{% endcodeblock %}
 
 或
 
-```bash
+{% codeblock lang:bash mark:12 %}
 wait Rendering static HTML...
 <--- Last few GCs --->
 [7124:0x4537f20]   248604 ms: Scavenge 2035.8 (2060.2) -> 2030.6 (2060.9) MB, 5.5 / 0.0 ms  (average mu = 0.201, current mu = 0.099) allocation failure 
@@ -90,7 +90,7 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm ERR! A complete log of this run can be found in:
 npm ERR!     /home/gitlab-runner/.npm/_logs/2020-10-09T08_06_30_758Z-debug.log
 ERROR: Job failed: exit status 1
-```
+{% endcodeblock %}
 
 主要错误
 

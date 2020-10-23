@@ -38,7 +38,7 @@ npm install
 运行
 
 ```bash
-hexo s # hexo server
+hexo server  # 简写 hexo s
 ```
 
 打开浏览器访问 [http://localhost:4000](http://localhost:4000) 预览效果
@@ -97,7 +97,7 @@ npm install hexo-deployer-git --save
 最后执行以下命令即可一键部署上传
 
 ```bash
-hexo g -d # hexo generate deploy
+hexo generate deploy  # 简写 hexo g -d 
 ```
 
 稍等一会，在浏览器访问网址 https://你的用户名.github.io 就能看到你的博客啦！！
