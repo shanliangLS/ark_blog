@@ -8,6 +8,10 @@ tags:
 - Vuepress
 ---
 
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+
+<!-- more -->
+
 ## 编译 Vuepress 内存溢出
 
 - [x] 已解决

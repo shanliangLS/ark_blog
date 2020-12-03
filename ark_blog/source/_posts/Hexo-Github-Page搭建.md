@@ -101,3 +101,13 @@ hexo generate deploy  # 简写 hexo g -d
 ```
 
 稍等一会，在浏览器访问网址 https://你的用户名.github.io 就能看到你的博客啦！！
+
+## 写作
+
+执行下列命令来创建一篇新文章或者新的页面
+
+```bash
+hexo new [layout] <title>
+```
+
+在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局
