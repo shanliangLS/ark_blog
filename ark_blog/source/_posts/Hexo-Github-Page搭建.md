@@ -97,7 +97,7 @@ npm install hexo-deployer-git --save
 最后执行以下命令即可一键部署上传
 
 ```bash
-hexo generate deploy  # 简写 hexo g -d 
+hexo generate deploy  # 简写 hexo g -d
 ```
 
 稍等一会，在浏览器访问网址 https://你的用户名.github.io 就能看到你的博客啦！！
@@ -108,6 +108,15 @@ hexo generate deploy  # 简写 hexo g -d
 
 ```bash
 hexo new [layout] <title>
+# hexo new "Hexo + Github Page 搭建"
 ```
 
 在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局
+
+### 插入图片
+
+在同名文件夹下放入图片，在文章中添加
+
+```markdown
+{% asset_img 图片名称.png %}
+```

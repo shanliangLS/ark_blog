@@ -2,7 +2,7 @@
 title: Node.js 编译时内存溢出
 date: 2020-10-23 11:17:34
 categories:
-- BUG修复
+- 前端
 tags:
 - Node.js
 - Vuepress
