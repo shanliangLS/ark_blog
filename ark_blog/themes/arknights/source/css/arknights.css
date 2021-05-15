@@ -286,7 +286,8 @@ article {
     font-weight: bold;
     padding: 0 10px 0 0; }
   .recent-post .tags {
-    font-size: small; }
+    font-size: small;
+    font-weight: 600; }
     .recent-post .tags span, .recent-post .tags object {
       display: inline-block;
       padding: 0 5px 0 0; }
