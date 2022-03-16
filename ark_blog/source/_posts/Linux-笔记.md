@@ -8,6 +8,10 @@ tags:
 - Linux
 ---
 
+Linux 软件安装、操作笔记
+
+<!-- more -->
+
 ## 安装 jdk
 
 查询 yum 下所有的 java 版本

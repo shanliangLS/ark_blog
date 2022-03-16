@@ -7,6 +7,10 @@ tags:
 - npm
 ---
 
+node-sass 安装失败
+
+<!-- more -->
+
 ## node-sass
 
 参考[整理 node-sass 安装失败的原因及解决办法(小结)](https://www.jb51.net/article/180781.htm)

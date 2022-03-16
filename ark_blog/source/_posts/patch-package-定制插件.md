@@ -7,6 +7,10 @@ tags:
 - npm
 ---
 
+使用 patch-package 定制 node_modules 中的依赖包
+
+<!-- more -->
+
 - 参考[使用patch-package定制node_modules 中的依赖包](https://blog.csdn.net/qq_32429257/article/details/111051217)
 
 ## 使用背景
