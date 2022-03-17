@@ -5,7 +5,7 @@ categories:
 - 快速上手
 tags:
 - Hexo
-- Github Page
+- Github
 ---
 
 ## 安装 Hexo
