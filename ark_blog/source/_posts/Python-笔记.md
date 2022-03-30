@@ -169,6 +169,34 @@ pip3 install selenium==2.48.0
 
 连接超时
 
+## 实用方法
+
+### 查找字符串中某字符第N次出现的位置下标
+
+正数
+
+```python
+def find_n_sub_str(src, sub, pos, start):
+    index = src.find(sub, start)
+    if index != -1 and pos > 1:
+        return find_n_sub_str(src, sub, pos - 1, index + 1)
+    return index
+```
+
+pos 表示第 n 个子串，从0开始。start 为起始位置
+
+倒数
+
+```python
+def rfind_n_sub_str(src, sub, pos, end):
+    index = src.rfind(sub, 0, end)
+    if index != -1 and pos > 1:
+        return rfind_n_sub_str(src, sub, pos - 1, index)
+    return index
+```
+
+end 为结束位置，初始传参 len(src)
+
 ## 路径、文件名、后缀
 
 ### os.path

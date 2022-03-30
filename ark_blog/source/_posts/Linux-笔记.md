@@ -12,6 +12,34 @@ Linux 软件安装、操作笔记
 
 <!-- more -->
 
+## 用户
+
+### 创建新用户
+
+1. 添加用户
+
+   ```bash
+   adduser liangsh
+   ```
+
+   修改密码
+
+   ```bash
+   passwd liangsh
+   ```
+
+   输入两次新密码
+
+2. 赋予root权限（可以使用sudo）
+
+   修改 `/etc/sudoers` 文件：
+
+   ```
+   ## Allow root to run any commands anywhere
+   root    ALL=(ALL)     ALL
+   liangsh   ALL=(ALL)     ALL
+   ```
+
 ## 安装 jdk
 
 查询 yum 下所有的 java 版本
@@ -209,3 +237,92 @@ mysql>use 新建数据库
 ```bash
 mysql>source sql文件
 ```
+
+## 安装 glibc_2.18 和 libstdc++.so
+
+参考 [Linux下安装GLIBC_2.18和libstdc++.so](https://www.jianshu.com/p/f23129adb8c4/)
+
+Tips：如果不装libstdc++.so会报错：`ImportError: /usr/lib64/libstdc++.so.6: version 'GLIBCXX_3.4.15' not found (required by /opt/calibre/lib/libQt5WebKit.so.5)`
+
+- `GLIBC_2.18`,`GLIBCXX_3.4.19`
+
+```
+# yum install libstdc++.so.6 -y
+--- 查看动态库版本有哪些
+# strings /usr/lib64/libstdc++.so.6 | grep GLIBC
+# wget http://ftp.de.debian.org/debian/pool/main/g/gcc-4.8/libstdc++6-4.8-dbg_4.8.4-1_amd64.deb
+# ar -x libstdc++6-4.8-dbg_4.8.4-1_amd64.deb
+# tar -xvf data.tar.xz
+-- 拷贝至/usr/lib64下
+# cp ./usr/lib/x86_64-linux-gnu/debug/libstdc++.so.6.0.19 /usr/lib64
+-- 授权
+# chmod +x /usr/lib64/libstdc++.so.6.0.19
+-- 删除低版本库的软连接
+# rm /usr/lib64/libstdc++.so.6
+# ln -s /usr/lib64/libstdc++.so.6.0.19 /usr/lib64/libstdc++.so.6
+
+# cd /usr/local
+# wget http://mirrors.ustc.edu.cn/gnu/libc/glibc-2.18.tar.gz
+# tar -xzvf glibc-2.18.tar.gz
+# cd glibc-2.18
+# mkdir build && cd build/
+# ../configure --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin
+# make -j4
+# make install
+--- 解决中文乱码问题
+# make localedata/install-locales
+--- 检查验证
+# ll /lib64/libc*
+--- 查看系统glibc支持的版本
+# strings /lib64/libc.so.6 |grep GLIBC
+# /lib64/libc.so.6
+```
+
+## Docker
+
+安装
+
+```bash
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install -y docker-ce
+```
+
+启动
+
+```bash
+service docker start
+```
+
+### 下载镜像到本地
+
+```bash
+docker pull <repository>:<tag> # 必须先pull镜像到本地
+docker save <repository>:<tag> -o <repository>.tar # 保存为tar包
+```
+
+直接使用 IMAGE ID 保存，导入后 repository 和 tag 名称会显示 none
+
+```bash
+docker save <IMAGE ID> -o <repository>.tar # 会导致载入镜像后名字标签都为<none>
+```
+
+如果 docker 载入新的镜像后 repository 和 tag 都为 none，那么通过 tag 的方法增加名字标签
+
+```bash
+docker tag <IMAGE ID> <repository>:<tag>
+```
+
+### 载入镜像
+
+```bash
+docker load --input <repository>.tar
+```
+
+### 删除镜像
+
+```bash
+docker rmi -f <IMAGE ID>
+```
+
+`-f` 表示强制删除镜像
