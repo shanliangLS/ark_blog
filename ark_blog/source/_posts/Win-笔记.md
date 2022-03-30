@@ -2,6 +2,7 @@
 title: Win 笔记
 date: 2022-03-30 11:37:00
 categories:
+- 快速上手
 - 操作系统
 tags:
 - Windows

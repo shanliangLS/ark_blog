@@ -1,3 +1,12 @@
+---
+title: Hubot 官方文档
+date: 2022-01-15 ‏‎12:00:00
+categories:
+- 文档
+tags:
+- ChatOps
+---
+
 # Hubot 官方文档
 
 [原文链接🔗](https://hubot.github.com/docs/)

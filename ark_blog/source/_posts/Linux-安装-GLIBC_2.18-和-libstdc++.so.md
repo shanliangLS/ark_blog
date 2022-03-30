@@ -1,3 +1,13 @@
+---
+title: Linux 安装 GLIBC_2.18 和 libstdc++.so
+date: 2022-01-15 ‏‎12:00:00
+categories:
+- 快速上手
+- 操作系统
+tags:
+- Linux
+---
+
 参考 [Linux下安装GLIBC_2.18和libstdc++.so](https://www.jianshu.com/p/f23129adb8c4)
 
 Tips: 如果不装 libstdc++.so 会报错：`ImportError: /usr/lib64/libstdc++.so.6: version 'GLIBCXX_3.4.15' not found (required by /opt/calibre/lib/libQt5WebKit.so.5)`
