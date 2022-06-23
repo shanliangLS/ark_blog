@@ -49,15 +49,15 @@ cmake version 2.8.12.2
 
 ## 依赖库
 
-ZLMediaKit可选依赖一些第三方库，这些库都不是必选的
+ZLMediaKit 可选依赖一些第三方库，这些库都不是必选的
 
 - openssl  
-flash player在播放rtmp时，采用的是复杂握手模式，如果不安装该库，flash player将播放不了zlmediakit 提供的rtmp url  
-同时ZLMediaKit的https/rtsps相关功能需要使用openssl才能开启
+flash player 在播放 rtmp 时，采用的是复杂握手模式，如果不安装该库，flash player 将播放不了 zlmediakit 提供的 rtmp url  
+同时 ZLMediaKit 的 https/rtsps 相关功能需要使用 openssl 才能开启
 - ffmpeg  
-zlmediakit可以通过fork ffmpeg进程的方式实现多种协议的拉流，编译时不需要安装FFmpeg
+zlmediakit 可以通过 fork ffmpeg 进程的方式实现多种协议的拉流，编译时不需要安装 FFmpeg
 - sdl、avcodec、avutil  
-这3个库供ZLMediaKit的test_player测试程序使用，你通常不需要安装这3个库
+这3个库供 ZLMediaKit 的 test_player 测试程序使用，你通常不需要安装这3个库
 
 ### openssl
 
@@ -104,10 +104,7 @@ ZLMediaKit 工程主要生成3种二进制目标文件，他们的生成的路�
 
 - MediaServer 进程
 
-这是 ZLMediaKit 作为服务器的主进程，该进程可以在免去开发的情况下直接作为测试流媒体服务器使用，如果你需要更复杂的业务逻辑，可以通过
-[Web HOOK](https://github.com/zlmediakit/ZLMediaKit/wiki/MediaServer%E6%94%AF%E6%8C%81%E7%9A%84HTTP-HOOK-API) 和
-[RESTful API](https://github.com/zlmediakit/ZLMediaKit/wiki/MediaServer%E6%94%AF%E6%8C%81%E7%9A%84HTTP-API) 实现，
-同时你可以通过[配置文件](https://github.com/zlmediakit/ZLMediaKit/wiki/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3)控制其参数
+这是 ZLMediaKit 作为服务器的主进程，该进程可以在免去开发的情况下直接作为测试流媒体服务器使用，如果你需要更复杂的业务逻辑，可以通过 [Web HOOK](https://github.com/zlmediakit/ZLMediaKit/wiki/MediaServer%E6%94%AF%E6%8C%81%E7%9A%84HTTP-HOOK-API) 和 [RESTful API](https://github.com/zlmediakit/ZLMediaKit/wiki/MediaServer%E6%94%AF%E6%8C%81%E7%9A%84HTTP-API) 实现，同时你可以通过[配置文件](https://github.com/zlmediakit/ZLMediaKit/wiki/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3)控制其参数
 
 ```bash
 cd ZLMediaKit/release/linux/Debug
