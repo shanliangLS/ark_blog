@@ -40,6 +40,48 @@ Linux 软件安装、操作笔记
    liangsh   ALL=(ALL)     ALL
    ```
 
+## CentOS7 修改系统时间和硬件时间
+
+参考 [CentOS7 修改系统时间和硬件时间](https://blog.csdn.net/weixin_46195957/article/details/123579811)
+
+安装在虚拟机上的 CentOS7 的时间分为系统时间和硬件时间。二者都修改，重启系统才会永久生效。
+
+### 查看系统时间
+
+```bash
+date
+```
+
+### 修改系统时间
+
+```bash
+date -s "2018-2-22 19:10:30
+```
+
+### 查看硬件时间
+
+```bash
+hwclock --show
+```
+
+### 修改硬件时间
+
+```bash
+hwclock --set --date “2018-2-22 19:10:30”
+```
+
+### 同步系统时间和硬件时间
+
+```bash
+hwclock --hctosys
+```
+
+### 保存时钟
+ 
+```bash
+clock -w
+```
+
 ## 安装 jdk
 
 查询 yum 下所有的 java 版本
