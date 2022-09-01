@@ -57,7 +57,7 @@ make
 make install
 # 或者备份安装
 #mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx_back
-#cp ./sbin/nginx /usr/local/nginx/sbin/
+#cp ./sbin/nginx /usr/local/nginx/sbin/ /usr/local/nginx/sbin/
 # 重启
 /usr/local/nginx/sbin/nginx -s reload
 ```
