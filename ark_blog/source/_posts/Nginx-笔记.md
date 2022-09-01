@@ -276,7 +276,7 @@ location /static {
 最后网址经过nginx转向到的网址是 192.168.2.321:81/a.html
 ```
 
-第三种 location 后有 `/` proxy_pass 后无 `/`
+- 第三种 location 后有 `/` proxy_pass 后无 `/`
 
 ```bash
 # 192.168.1.123-->server name
@@ -291,7 +291,7 @@ location /static/ {
 最后网址经过nginx转向到的网址是 192.168.2.321:81/static/a.html
 ```
 
-第四种 location 后有 `/` proxy_pass 后有 `/`
+- 第四种 location 后有 `/` proxy_pass 后有 `/`
 
 ```bash
 # 192.168.1.123-->server name
@@ -299,7 +299,7 @@ location /static/ {
 # /statc/ ---------->location（path1）
 # a.html --------->proxy_pass （path2）
 
-location /static/{
+location /static/ {
 	proxy_pass  192.168.2.321:81/;
 }
 
