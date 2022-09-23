@@ -194,6 +194,24 @@ http {
 
 注意 stream 与 http 平级
 
+### gzip 压缩
+
+nginx.conf 的 http 中加入以下片断
+
+```bash
+# gzip config
+gzip on;
+gzip_min_length 10k;
+gzip_buffers 4 16k;
+gzip_http_version 1.1;
+gzip_comp_level 6;
+gzip_types text/plain text/css text/javascript text/xml application/json application/javascript application/x-javascript application/xml application/x-httpd-php image/jpeg image/gif image/png;
+gzip_vary on;
+gzip_disable "MSIE [1-6]\.";
+```
+
+前端需要使用 compression-webpack-plugin 插件压缩文件
+
 ### 日志
 
 nginx 需要安装日志模块 ngx_http_log_module
