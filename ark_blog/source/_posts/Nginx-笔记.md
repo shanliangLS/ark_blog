@@ -173,6 +173,45 @@ http {
 }
 ```
 
+#### 同端口 http 自动跳转 https
+
+参考 [nginx_非标准端口_同端口_http_自动跳转_https](https://www.cnblogs.com/haolb123/p/16553020.html)
+
+用 error_page 拦截 497 实现 http 跳转 https，在 `server { .. }` 中加入一行
+
+```bash
+error_page 497 https://$host:$server_port$request_uri; #默认用302,临时重定向
+#或
+error_page 497 =301 https://$host:$server_port$request_uri; #永久重定向
+#或
+error_page 497 =307 https://$host:$server_port$request_uri; #临时重定向,不改变请求的方法(如post还是post)
+```
+
+### websocket 转发
+
+nginx.conf 配置文件：
+
+```bash
+http {
+    server{
+        ......
+
+        # 自定义变量 $connection_upgrade
+        map $http_upgrade $connection_upgrade {
+            default          keep-alive;  #默认为keep-alive 可以支持 一般http请求
+            'websocket'      upgrade;     #如果为websocket 则为 upgrade 可升级的。
+        }
+
+        location /websocket/ {
+            proxy_pass http://127.0.0.1:8080/websocket/;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade; #此处配置 上面定义的变量
+            proxy_set_header Connection $connection_upgrade;
+        }
+    }
+}
+```
+
 ### stream 转发
 
 nginx.conf 配置文件：
