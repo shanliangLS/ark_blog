@@ -1,5 +1,5 @@
 ---
-title: Nginx 笔记
+title: Nginx 安装与配置
 date: 2022-09-01 15:05:00
 categories:
 - 快速上手

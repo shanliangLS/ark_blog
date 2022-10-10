@@ -1,5 +1,5 @@
 ---
-title: Win 笔记
+title: Win 常用命令
 date: 2022-03-30 11:37:00
 categories:
 - 快速上手

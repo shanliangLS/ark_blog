@@ -3,7 +3,6 @@ title: Docker 安装与入门
 date: 2022-10-09 08:54:00
 categories:
 - 快速上手
-- 操作系统
 tags:
 - Docker
 - Linux
@@ -83,6 +82,27 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # 查看一下version，显示有版本号那就说明安装成功了
 docker-compose version
+```
+
+### 启动异常
+
+#### OCI runtime create failed
+
+启动镜像时报
+
+```bash
+docker: Error response from daemon: failed to create shim: OCI runtime create failed: unable to retrieve OCI runtime error (open /run/containerd/io.containerd.runtime.v2.task/moby/cdf3729f103e2f4cb94e25f3cfe6c21a3126428c0a977b7651ed5a77ab6d7/log.json: no such file or directory): runc did not terminate successfully: unknown.
+```
+
+下载 [runc](https://github.com/opencontainers/runc/tags) 替换
+
+```bash
+cp runc.amd64 /usr/local/bin/runc
+cp runc.amd64 /usr/local/sbin/runc
+cp runc.amd64 /usr/bin/runc
+chmod +x /usr/local/bin/runc
+chmod +x /usr/local/sbin/runc
+chmod +x /usr/bin/runc
 ```
 
 ## 镜像

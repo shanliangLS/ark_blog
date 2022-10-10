@@ -1,5 +1,5 @@
 ---
-title: Git 笔记
+title: Git 常用命令
 date: 2021-05-22 ‏‎19:00:55
 categories:
 - 快速上手
@@ -108,4 +108,3 @@ git push -f
 |              |                                                              |
 | /mtk/        | 忽略整个文件夹                                               |
 | /mtk/do.c    | 忽略某个具体文件                                             |
-

@@ -1,5 +1,5 @@
 ---
-title: Linux 笔记
+title: Linux 常用命令与软件安装
 date: 2021-01-19 16:48:21
 categories:
 - 快速上手
